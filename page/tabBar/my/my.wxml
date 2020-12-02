@@ -1,0 +1,80 @@
+<!--my.wxml-->
+<view class="main">
+  <view class="headerWrap" style="height: {{height + 160}}px">
+    <view class="inner" style="margin-top: {{height}}px">
+      <view class="leftIcon">
+        <image  class=" userinfo-avatar" src="/image/myicon.png" mode="aspectFit" wx:if="{{!avatarUrl}}"></image>
+         <image   class=" userinfo-avatar" src="{{avatarUrl}}" mode="aspectFit" wx:if="{{avatarUrl}}"></image>
+      </view>
+      <view class="centerNi" wx:if="{{phone}}">
+        <view class="nickName el"> {{nickName}}</view>
+      </view>
+      <view class="centerNi" wx:if="{{!phone}}">
+        <view  class="login" bindtap="gotoLogin">
+          点击登录
+        </view>
+      </view>
+      <view class="rightPart" bindtap="gotoCode">
+        <image  class="scan" src="/image/code.png"></image>
+        <image class="goSee" src="/image/righticon.png"></image>
+      </view>
+    </view>
+    <view  class="markTop">
+      <view class="imgBox">
+          <!-- 男孩及段位 -->
+        <image src="https://www.guangliangkongjian.com/images/b1.png"  mode="aspectFit" wx:if="{{gender == 0}}"></image>     
+          <!-- 女孩及段位 -->
+        <image src="https://www.guangliangkongjian.com/images/g1.png"  mode="aspectFit" wx:if="{{gender == 1 && 300 >=balance && balance >= 0}}"></image>
+           <image  wx:if="{{!studentId}}" src="/image/zengjiagrey.png" bindtap='gotoAdd'></image>
+        </view>
+        <view class="right_center">
+          <view class="reminTitle">当前绑定孩子</view>
+          <view class= "reminName">{{studentName}}</view>
+        </view>
+        <view class="right_right">
+          <Select bindmyevent="myevent"  bindnewchildrenlist ="newchildrenlist" prop-array='{{selectArray}}'></Select>
+          <view>｜</view>
+          <view class="manage" bindtap="gotoMyChild"> 管理</view>
+        </view>
+    </view>
+  </view>
+  <view class="centerBox">
+    <view class="titleBox">
+        档案明细
+    </view>
+    <view class="contentBox">
+       <view class="centerItem"  bindtap="goToBao">
+          <image  mode="" src="/image/dangan.png"></image>
+        <view class="itemTitle">眼健康档案</view>
+      </view>
+    </view>
+    
+    <view class="titleBox">
+      第三方
+    </view>
+    <view class="contentBox">
+      <view class="centerItem" bindtap="goClert">
+        <image  src="/image/clert.png"></image>
+        <view class="itemTitle">合作端入口</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 添加孩子 -->
+   <view class="bg2" wx:if="{{show}}"  bindtap="hide"></view>
+   <view class="show"  wx:if="{{show}}">
+      <view class="quxiao" bindtap="hide">
+        <image src="/image/quxiao3.png" mode="aspectFit"></image>
+      </view>
+     <view class="modeTitle">
+        请扫描学生二维码
+      </view>
+      <view class="btnBox">
+        <!-- <view class="addBtn" style="background: #92A6FF" bindtap="gotoManu">手动添加</view> -->
+        <view class="addBtn" bindtap="gotoScan">扫码添加</view>
+    </view>
+      <view class="noCode" bindtap="gotoManu">
+       我没有二维码
+      </view>
+    </view>

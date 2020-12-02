@@ -1,0 +1,36 @@
+{
+  "pages":[
+    "page/tabBar/my/my",
+    "page/tabBar/index/index"
+  ],
+  "tabBar": {
+    "list": [  
+      {
+        "pagePath":"page/tabBar/index/index",
+        "text": "训练",
+        "iconPath": "image/my.png",
+        "selectedIconPath": "image/myactive.png"
+      },
+      {
+        "pagePath": "page/tabBar/my/my",
+        "text": " 我的",
+        "iconPath": "image/my.png",
+        "selectedIconPath": "image/myactive.png"
+      }
+    ]
+  },
+  "subPackages": [
+    {
+      "root": "page/component/",
+      "pages": [
+        "childrenManage/childrenManage"
+      ]
+    }],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

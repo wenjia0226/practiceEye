@@ -1,0 +1,33 @@
+<!--pages/childrenManage/childrenManage.wxml-->
+
+<view class="main">
+<scroll-view scroll-y>
+<view class="itemContainer">
+  <view class="swiperwrap" wx:for="{{childrenList}}" wx:key="id" >
+    <view class="del" data-del="{{item.id}}" bindtap="deleteChild">
+      <image src="/image/delete.png"></image>
+    </view>
+    <view class="logo">
+      <!-- 男孩及段位 -->
+     <image src="https://www.guangliangkongjian.com/images/b1.png"  mode="aspectFit" wx:if="{{ item.gender == 0}}"></image>
+      <!-- 女孩及段位 -->
+    <image src="https://www.guangliangkongjian.com/images/g1.png"  mode="aspectFit" wx:if="{{ item.gender == 1 }}"></image>        
+    </view>
+    <view class ="text">
+        <view class="name">姓名：{{item.name}}</view>
+        <view class="born">出生日期：{{item.birthday}}</view>
+    </view>
+    <view class="detailWrapper">
+      <view class="toDetailBox" data-id="{{item.id}}"   bindtap="gotoChildrenDetail" >
+        <text>详情</text>
+
+        <image src="/image/righticon3.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="swiperwrap" bindtap="addChild" style="background: #F8F8F8;" else>
+    <image src="/image/zengjia.png" mode="aspectFit" style="width: 150rpx;"></image>
+  </view>
+  </view>
+  </scroll-view>
+</view>
